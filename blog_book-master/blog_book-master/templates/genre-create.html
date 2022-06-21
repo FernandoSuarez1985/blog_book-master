@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}
+  
+  Crear g&eacute;nero
+  
+{% endblock%}
+
+{% block contenido %}
+  
+  <br>  
+  <p>&nbsp;Crear g&eacute;nero</p>
+  
+  {% if form%}
+  
+    <form action="" method="POST">
+      {% csrf_token %}
+      <table>
+          {{form.as_table}}
+      </table>
+      <br>
+      <input type="submit", value="Enviar">&nbsp;<input type="reset", value="Borrar">
+    </form>
+    
+  {% elif new_genre %}
+  <div class="card" style="width: 18rem; margin-left: 1rem;">
+    <div class="card-body">
+      <h5 class="card-title">
+        
+        {{genre.name}}
+        
+      </h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+        
+        {% if genre.description %}
+        
+          {{genre.description}}  
+
+        {% endif %}
+      
+      </h6>
+      <p class="card-text"></p>
+      <a href="#" class="card-link"></a>
+      <a href="#" class="card-link"></a>
+    </div>
+  </div>
+    
+  {% endif%}
+  
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}
+  
+  Crear libro
+  
+{% endblock%}
+
+{% block contenido %}
+  
+  <br>  
+  <p>&nbsp;Crear libro</p>
+  
+  {% if form %}
+  
+  <table>
+    <tr>
+      <td>&nbsp;</td>
+      <td></td>
+      <td>
+        <form action="" method="POST">
+
+          {% csrf_token %}
+          
+          <table>
+          
+            {{form.as_table}}
+          
+          </table>
+          
+          <br>
+          <input type="submit", value="Enviar">&nbsp;<input type="reset", value="Borrar">
+
+        </form>
+      </td>
+    </tr>
+  </table>
+
+  {% elif new_book %}
+
+    <div class="card" style="width: 18rem; margin-left: 1rem;">
+
+      {% if new_book.cover %}
+
+        <img src="{{new_book.cover.url}}" class="card-img-top" alt="...">
+        
+      {% endif %}
+      
+      <div class="card-body">
+        <h5 class="card-title">{{new_book.title}}</h5>
+        <p class="card-text">ISBN: {{new_book.isbn}}</p>
+        <p class="card-text">{{new_book.publication_date}}</p>
+        <p class="card-text">{{new_book.synopsis}}</p>
+        <a href="#" class="btn btn-primary">{{new_book.price}}</a>
+      </div>
+    </div>
+    
+  {% endif %}
+  
+{% endblock %}

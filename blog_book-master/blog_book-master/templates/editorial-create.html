@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}
+  
+  Crear editorial
+  
+{% endblock%}
+
+{% block contenido %}
+  
+  <br>  
+  <p>&nbsp;Crear editorial</p>
+
+  {% if form %}
+  
+  <table>
+    <tr>
+      <td>&nbsp;</td>
+      <td></td>
+      <td>
+        <form action="" method="POST">
+
+          {% csrf_token %}
+          
+          <table>
+          
+            {{form.as_table}}
+          
+          </table>
+          
+          <br>
+          <input type="submit", value="Enviar">&nbsp;<input type="reset", value="Borrar">
+
+        </form>
+      </td>
+    </tr>
+  </table>
+
+  {% elif new_editorial %}
+
+    <div class="card" style="width: 18rem; margin-left: 1rem;">
+
+      {% if new_editorial.logo %}
+
+        <img src="{{new_editorial.logo.url}}" class="card-img-top" alt="...">
+        
+      {% endif %}
+      
+      <div class="card-body">
+        <h5 class="card-title">{{new_editorial.name}}</h5>
+        <p class="card-text"></p>
+        <p class="card-text"></p>
+        <!--<a href="#" class="btn btn-primary"></a>-->
+      </div>
+    </div>
+    
+  {% endif %}
+  
+{% endblock %}

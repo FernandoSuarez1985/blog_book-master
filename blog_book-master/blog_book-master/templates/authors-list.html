@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+  
+  Listar autores
+  
+{% endblock%}
+
+{% block contenido %}
+  
+  <br>
+  <p>&nbsp;Listar autores</p>
+  
+  {% for author in authors %}
+    
+  <div class="card" style="width: 18rem; margin-left: 1rem;">
+    <div class="card-body">
+      <h5 class="card-title">
+        
+      {{author.name}}
+        
+      {% if author.middle_name %}
+        
+        {{author.middle_name}} {{author.surname}}  
+      
+      {% else %}
+        
+        {{author.surname}}
+      
+      {% endif %}
+
+      </h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{new_author.nickname}}</h6>
+      <p class="card-text">{{author.birthday}}</p>
+      <a href="#" class="card-link"></a>
+      <a href="#" class="card-link"></a>
+    </div>
+  </div>
+  <br>
+
+  {% endfor%}
+    
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    
+    Buscar libros
+
+{% endblock %}
+
+{% block contenido %}
+
+<br>
+<p>&nbsp;Buscador libros</p>
+
+{% for book in books %}
+
+    <div class="card" style="width: 18rem; margin-left: 1rem;">
+
+      {% if book.cover %}
+
+        <img src="{{book.cover.url}}" class="card-img-top" alt="...">
+        
+      {% endif %}
+      
+      <div class="card-body">
+        <h5 class="card-title">{{book.title}}</h5>
+        <p class="card-text">ISBN: {{book.isbn}}</p>
+        <p class="card-text">{{book.publication_date}}</p>
+        <p class="card-text">{{book.synopsis}}</p>
+        <a href="#" class="btn btn-primary">{{book.price}}</a>
+      </div>
+    </div>
+    <br>
+
+  {% endfor%}
+
+{% endblock %}

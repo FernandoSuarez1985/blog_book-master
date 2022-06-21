@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+  
+  Listar g&eacute;neros
+  
+{% endblock%}
+
+{% block contenido %}
+  
+  <br>
+  <p>&nbsp;Listar g&eacute;neros</p>
+
+  {% for genre in genres %}
+    
+  <div class="card" style="width: 18rem; margin-left: 1rem;">
+    <div class="card-body">
+      <h5 class="card-title">
+        
+        {{genre.name}}
+        
+      </h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+        
+        {% if genre.description %}
+        
+          {{genre.description}}  
+
+        {% endif %}
+      
+      </h6>
+      <p class="card-text"></p>
+      <a href="#" class="card-link"></a>
+      <a href="#" class="card-link"></a>
+    </div>
+  </div>
+  <br>
+    
+  {% endfor%}
+    
+{% endblock %}

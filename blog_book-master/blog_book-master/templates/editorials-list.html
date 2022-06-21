@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}
+  
+  Listar editoriales
+  
+{% endblock%}
+
+{% block contenido %}
+  
+  <br>
+  <p>&nbsp;Listar editoriales</p>
+  
+  {% for editorial in editorials %}
+    
+  <div class="card" style="width: 18rem; margin-left: 1rem;">
+    
+  {% if editorial.logo %}
+
+    <img src="{{editorial.logo.url}}" class="card-img-top" alt="...">
+    
+  {% endif %}
+        
+    <div class="card-body">
+      <h5 class="card-title">
+        
+        {{editorial.name}}
+        
+      </h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+        
+        {% if editorial.main_organization %}
+        
+          {{editorial.main_organization}}  
+
+        {% endif %}
+      
+      </h6>
+      <p class="card-text"></p>
+      <a href="#" class="card-link"></a>
+      <a href="#" class="card-link"></a>
+    </div>
+  </div>
+  <br>
+    
+  {% endfor%}
+    
+{% endblock %}
